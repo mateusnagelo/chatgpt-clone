@@ -16,6 +16,10 @@ const config: Config = {
 				'gpt-gray': '#343541',
 				'gpt-lightgray': '#40414F',
 			},
+
+			animation: {
+				blink: 'blink 1s infinite',
+			},
 		},
 	},
 	plugins: [],

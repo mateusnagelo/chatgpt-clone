@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-import IconAdd from './icons/iconAdd';
-import IconClose from './icons/iconsClose';
+import IconAdd from './icons/IconAdd';
+import IconClose from './icons/IconsClose';
 import { SidebarButton } from './SidebarButton';
 import IconTrashCan from './icons/IconTrashCan';
 

@@ -12,7 +12,7 @@ export const Footer = ({ disabled, onSendMessage }: Props) => {
 			<div className="max-w-4xl m-auto">
 				<ChatMessageInput disabled={disabled} onSend={onSendMessage} />
 				<div className="pt-3 text-center text-xs text-gray-300">
-					Feito por Mateus Angelo em live com a B7WEB.
+					Feito por Mateus Angelo em live com a B7WEB. <br />
 					<a href="https://github.com/mateusnagelo" className="underline"></a>
 				</div>
 			</div>

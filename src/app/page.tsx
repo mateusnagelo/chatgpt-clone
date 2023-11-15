@@ -97,10 +97,28 @@ const Page = () => {
 		setAILoading(true);
 	};
 
-	const handleSelectChat = () => {};
-	const handleDeleteChat = () => {};
+	const handleSelectChat = (id: string) => {
+		if (AILoading) return;
+		const item = chatList.find((item) => item.id === id);
+		if (item) setChatActiveId(item.id);
+		closeSidebar();
+	};
+	const handleDeleteChat = (id: string) => {
+		const chatListClone = [...chatList];
+		const chatIndex = chatListClone.findIndex((item) => item.id === id);
+		chatListClone.splice(chatIndex, 1);
+		setChatList(chatListClone);
+		setChatActiveId('');
+	};
 
-	const handleEditChat = () => {};
+	const handleEditChat = (id: string, newTitle: string) => {
+		if (newTitle) {
+			const chatListClone = [...chatList];
+			const chatIndex = chatListClone.findIndex((item) => item.id === id);
+			chatListClone[chatIndex].title = newTitle;
+			setChatList(chatListClone);
+		}
+	};
 
 	return (
 		<main className="flex min-h-screen bg-gpt-gray">

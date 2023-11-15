@@ -1,7 +1,7 @@
 // icon:edit-3 | Feathericons https://feathericons.com/ | Cole Bemis
 import * as React from 'react';
 
-function IconEdit(props: React.SVGProps<SVGSVGElement>) {
+function IconEdit3(props: React.SVGProps<SVGSVGElement>) {
 	return (
 		<svg
 			fill="none"
@@ -19,4 +19,4 @@ function IconEdit(props: React.SVGProps<SVGSVGElement>) {
 	);
 }
 
-export default IconEdit;
+export default IconEdit3;

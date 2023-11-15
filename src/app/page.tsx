@@ -8,6 +8,7 @@ import { Chat } from '@/types/Chat';
 import { Footer } from '@/components/Footer';
 import IconMessageOutline from '@/components/icons/IconMessage';
 import { v4 as uuidv4 } from 'uuid';
+import { SiderbarChatButton } from '@/components/SiderbarChatButoon';
 
 const Page = () => {
 	const [sidebarOpened, setSidebarOpened] = useState(false);
@@ -40,7 +41,7 @@ const Page = () => {
 				chatListClone[chatIndex].messages.push({
 					id: uuidv4(),
 					author: 'ai',
-					body: 'Mensagem de teste :)',
+					body: 'Resposta da AI ;)',
 				});
 			}
 			setChatList(chatListClone);
@@ -96,6 +97,11 @@ const Page = () => {
 		setAILoading(true);
 	};
 
+	const handleSelectChat = () => {};
+	const handleDeleteChat = () => {};
+
+	const handleEditChat = () => {};
+
 	return (
 		<main className="flex min-h-screen bg-gpt-gray">
 			<Sidebar
@@ -104,13 +110,23 @@ const Page = () => {
 				OnClear={handleClearConversations}
 				onNewChat={handleNewChat}
 			>
-				<div className="flex p-1  ">
-					<IconMessageOutline width={14} height={14} className=" flex mt-1 mr-1  " />
-					Noticias de ultima hora
-				</div>
+				{chatList.map((item) => (
+					<SiderbarChatButton
+						key={item.id}
+						chatItem={item}
+						active={item.id === chatActiveId}
+						onClick={handleSelectChat}
+						onDelete={handleDeleteChat}
+						onEdit={handleEditChat}
+					/>
+				))}
 			</Sidebar>
 			<section className="flex flex-col w-full">
-				<Header openSidebarClick={openSidebar} title={'Bla bla bla'} newChatClick={handleNewChat} />
+				<Header
+					openSidebarClick={openSidebar}
+					title={chatActive ? chatActive.title : 'Nova conversa'}
+					newChatClick={handleNewChat}
+				/>
 
 				<ChatArea chat={chatActive} loading={AILoading} />
 

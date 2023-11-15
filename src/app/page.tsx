@@ -8,7 +8,7 @@ import { Chat } from '@/types/Chat';
 import { Footer } from '@/components/Footer';
 import IconMessageOutline from '@/components/icons/IconMessage';
 import { v4 as uuidv4 } from 'uuid';
-import { SiderbarChatButton } from '@/components/SiderbarChatButoon';
+import { SiderbarChatButton } from '@/components/SiderbarChatButton';
 
 const Page = () => {
 	const [sidebarOpened, setSidebarOpened] = useState(false);

@@ -9,6 +9,7 @@ import { Footer } from '@/components/Footer';
 import IconMessageOutline from '@/components/icons/IconMessage';
 import { v4 as uuidv4 } from 'uuid';
 import { SiderbarChatButton } from '@/components/SiderbarChatButton';
+import { OpenaiApi } from '@/utils/openai';
 
 const Page = () => {
 	const [sidebarOpened, setSidebarOpened] = useState(false);
@@ -62,7 +63,7 @@ const Page = () => {
 		closeSidebar();
 	};
 
-	const handleSendMessage = (message: string) => {
+	const handleSendMessage = async (message: string) => {
 		if (!chatActiveId) {
 			// Creating new chat
 
@@ -81,7 +82,8 @@ const Page = () => {
 				},
 				...chatList,
 			]);
-
+			console.log('chatlist1', chatList);
+			await OpenaiApi(chatList[1].messages);
 			setChatActiveId(newChatId);
 		} else {
 			// Updating existing chat
@@ -93,6 +95,8 @@ const Page = () => {
 				body: message,
 			});
 			setChatList(chatListClone);
+			console.log('chatlist2', chatList);
+			await OpenaiApi(chatList);
 		}
 		setAILoading(true);
 	};
